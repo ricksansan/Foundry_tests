@@ -1,0 +1,10 @@
+# Compiler output
+out/
+cache/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
