@@ -40,7 +40,7 @@ forge test -vv
 Belirli bir kontrat için:
 
 ```bash
-forge test --match-contract BankaTest -vv
+forge test --match-contract ContractName -vv
 ```
 
 ## Kurulum
