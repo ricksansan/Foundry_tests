@@ -147,8 +147,9 @@ contract MultiSigWalletTest is Test {
         multiSigTest.confirmTransaction(txId);
         vm.startPrank(charlie);
         multiSigTest.confirmTransaction(txId);
-
+        uint256 beforeBob = bob.balance;
         multiSigTest.executeTransaction(txId);
+        assertGt(bob.balance, beforeBob);
     }
     function test_RevertInsufficientConfirmations() public {
         vm.prank(alice);
@@ -196,8 +197,8 @@ contract MultiSigWalletTest is Test {
         uint256 beforeBob = bob.balance;
 
         multiSigTest.executeTransaction(txId);
-        uint256 afterBob = bob.balance;
-        assertGt(afterBob, beforeBob);
+
+        assertGt(bob.balance, beforeBob);
     }
     function test_FullScenarioRevokeAndFail() public {
         vm.prank(alice);
